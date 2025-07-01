@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Patient Profile</title>
+</head>
+<body>
+    <h1>Welcome, {{ user.username }}!</h1>
+    <p>This is your patient dashboard.</p>
+    <ul>
+        <li>Email: {{ user.email }}</li>
+        <li>Blood Group: {{ user.patient_profile.blood_group }}</li>
+        <li>Emergency Contact: {{ user.patient_profile.emergency_contact }}</li>
+    </ul>
+    <a href="{% url 'logout' %}">Logout</a>
+</body>
+</html>

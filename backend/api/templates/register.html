@@ -1,0 +1,33 @@
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+
+    <div id="doctor-form" style="display:none;">
+        <h3>Doctor Info</h3>
+        {{ doctor_form.as_p }}
+    </div>
+
+    <div id="patient-form" style="display:none;">
+        <h3>Patient Info</h3>
+        {{ patient_form.as_p }}
+    </div>
+
+    <button type="submit">Register</button>
+</form>
+
+<script>
+    const roleSelect = document.querySelector('select[name="role"]');
+    const doctorForm = document.getElementById('doctor-form');
+    const patientForm = document.getElementById('patient-form');
+
+    function toggleForms() {
+        const role = roleSelect.value;
+        doctorForm.style.display = (role === 'doctor') ? 'block' : 'none';
+        patientForm.style.display = (role === 'patient') ? 'block' : 'none';
+    }
+
+    if (roleSelect) {
+        roleSelect.addEventListener('change', toggleForms);
+        window.onload = toggleForms;
+    }
+</script>

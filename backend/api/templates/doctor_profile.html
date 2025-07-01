@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Doctor Profile</title>
+</head>
+<body>
+    <h1>Welcome, Doctor {{ user.username }}!</h1>
+    <p>This is your dashboard.</p>
+    <ul>
+        <li>Email: {{ user.email }}</li>
+        <li>Specialization: {{ user.doctor_profile.specialization }}</li>
+        <li>Contact: {{ user.doctor_profile.contact_number }}</li>
+    </ul>
+    <a href="{% url 'logout' %}">Logout</a>
+</body>
+</html>
